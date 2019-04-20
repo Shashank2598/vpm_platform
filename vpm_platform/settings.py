@@ -25,7 +25,6 @@ SECRET_KEY = 'xm%6e!bvs8ly)ylfy@it++z@ew*+8xvub&o)-c8bwqyk*!=q4('
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -35,7 +34,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
+
+    'apps.accounts.app_config.AccountsConfig',
+    'apps.recipients.app_config.RecipientsConfig',
 ]
+
+
+AUTH_USER_MODEL = 'accounts.BaseUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -64,6 +72,14 @@ TEMPLATES = [
         },
     },
 ]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+}
+
 
 WSGI_APPLICATION = 'vpm_platform.wsgi.application'
 
@@ -105,3 +121,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'jpl_platform', 'media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'jpl_platform', 'static')
+MEDIA_URL = '/media/'

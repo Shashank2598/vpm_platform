@@ -1,7 +1,7 @@
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'vpm_db',
+        'NAME': 'vpm_db2',
         'USER': '',
         'PASSWORD': '',
         'TEST': {

@@ -1,0 +1,7 @@
+*.pyc
+*.idea
+local_settings.py
+images
+media
+vpm_platform/static
+vpm_platform/media
